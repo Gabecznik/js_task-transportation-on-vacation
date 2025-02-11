@@ -5,6 +5,7 @@
  */
 function calculateRentalCost(days) {
   const rentCost = 40;
+  const totalCost = days * rentCost;
   const SHORT_TERM_DISCOUNT = 20;
   const LONG_TERM_DISCOUNT = 50;
   const minDays = 0;
@@ -16,15 +17,15 @@ function calculateRentalCost(days) {
   }
 
   if (days < shotTerm) {
-    return days * rentCost;
+    return totalCost;
   }
 
   if (days < longTerm) {
-    return days * rentCost - SHORT_TERM_DISCOUNT;
+    return totalCost - SHORT_TERM_DISCOUNT;
   }
 
   if (days >= longTerm) {
-    return days * rentCost - LONG_TERM_DISCOUNT;
+    return totalCost - LONG_TERM_DISCOUNT;
   }
 }
 
